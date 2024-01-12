@@ -25,35 +25,71 @@
         <table class="informations-table" style="margin-bottom: 20px;">
             <thead>
                 <tr>
-                    <th> Capteur</th>
+                    <th> Capteurs</th>
                     <th> Statut</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Sensor 1</td>
+                    <td>Actuateur de déserbage gauche</td>
                     <td id="sen1"></td>
                     
                 </tr>
                 <tr>
-                    <td>Sensor 2</td>
+                    <td>Actuateur de déserbage milieu</td>
                     <td id="sen2"></td>
                     
                 </tr>
                 <tr>
-                    <td>Sensor 3</td>
-                    <td id="sen3"></td>
+                    <td>Actuateur de déserbage droite</td>
+                    <td id="sen4"></td>
                     
                 </tr>
                 <tr>
-                    <td>Sensor 4</td>
-                    <td id="sen4"></td>
+                    <td>Actuateur latéral</td>
+                    <td id="sen5"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Caméra avant</td>
+                    <td id="sen6"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Caméra arrière</td>
+                    <td id="sen7"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Caméra coté droite</td>
+                    <td id="sen8"></td>
                    
                 </tr>
                 <tr>
-                    <td>Sensor 5</td>
-                    <td id="sen5"></td>
+                    <td>Caméra coté gauche</td>
+                    <td id="sen9"></td>
                 </tr>
+                <tr>
+                    <td>Caméra de désherbage</td>
+                    <td id="sen10"></td>
+                </tr>
+                <tr>
+                    <td>Moteur roue avant droite</td>
+                    <td id="sen11"></td>
+                </tr>
+                <tr>
+                    <td>Moteur roue avant gauche</td>
+                    <td id="sen12"></td>
+                </tr>
+                <tr>
+                    <td>Moteur roue arrière droite</td>
+                    <td id="sen13"></td>
+                </tr>
+                <tr>
+                    <td>Moteur roue arrière gauche</td>
+                    <td id="sen3"></td>
+                </tr>
+
 
             </tbody>
         </table>
@@ -67,10 +103,10 @@
         </div>
     
         </div>
-            <!-- BOUTON TEMPORAIRE POUR MANIPULATION DES ÉTATS-->
+            <!-- BOUTON TEMPORAIRE POUR MANIPULATION DES ÉTATS
             <div>
                 <button id="SEN" class="btn" onclick="ChangeValue('SEN')">0</button> 
-            </div>
+            </div>-->
         </div>
     </div>
     
@@ -87,18 +123,40 @@
             function functionStatut(){
                 // Variable statut
                 const sensorStatus = localStorage.getItem("SEN");
-                var Sen = parseInt(sensorStatus, 10);
+                
+                //var Sen = parseInt(sensorStatus, 10);
+                var Sen = 1;
 
-                for(i=1; i<=5; i++){
+                for(i=1; i<=10; i++){
 
                     var S = document.getElementById(`sen${i}`);
                     if (Sen === 1) {
-                        S.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERROR </i>';
+                        S.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERREUR </i>';
                     } else if (Sen === 2) {
                         S.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
                     } else if (Sen === 0){
-                        S.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> WARNING</i>';  
+                        S.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> AVERTISSEMENT</i>';  
                     } else{};
+                }
+                // TEMPORAIRE 
+                for(i=12; i<=13; i++){
+                if (Sen === 2) {
+                    S.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERREUR </i>';
+                } else if (Sen === 1) {
+                    S.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
+                } else if (Sen === 0){
+                    S.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> AVERTISSEMENT</i>';  
+                } else{};
+                }
+
+                for(i=14; i<=14; i++){
+                if (Sen === 0) {
+                    S.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERREUR </i>';
+                } else if (Sen === 2) {
+                    S.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
+                } else if (Sen === 1){
+                    S.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> AVERTISSEMENT</i>';  
+                } else{};
                 }
                
             }
@@ -121,10 +179,4 @@
     </script>
 </body>
 
-<!--
-<td </td>
-<td class="danger-status"><i class="fa-regular fa-circle-xmark"></i> ERROR</td>
-<td class="ok-status"><i class="fa-solid fa-check"></i> OK</td>
-<td class="warning-status"><i class="fa-solid fa-triangle-exclamation"></i> WARNING</td>
--->
 

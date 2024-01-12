@@ -24,11 +24,10 @@
         <!-- Main menu containing the basic button to navigate in the app -->
         <div class="btn-container">
             <button onclick="changerPage('Informations.html')" class="btn">Informations de base</button>
-            <button onclick="changerPage('ParametreDesherb.html')" class="btn">Paramètres de désherbage</button>
+            <button onclick="changerPageDéserbage()" class="btn">Paramètres de désherbage</button>
             <button onclick="changerPage('ManuelControl.html')" class="btn">Contrôle manuel</button>
             <button onclick="changerPage('Sensor.html')" class="btn">Statut des capteurs</button>
-            <!-- PAGE TEMPORAIRE POUR FAIRE DES TEST DE FONCTIONNEMENT-->
-            <!--button onclick="changerPage('pageTest.html')" class="btn">page test</button -->
+
         </div>   
         <div class="btn-container" style="margin-top:30px;">
             <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
@@ -48,6 +47,20 @@
     function changerPage(page) {
         window.location.href = page;
      }
+
+    function changerPageDéserbage() {
+        
+        if (JSON.parse(localStorage.getItem("envoyer"))){
+            window.location.href = "PlancheEnvoyer.html";
+        }
+        else{
+            window.location.href = "ParametreDesherb.html";
+        }
+        
+        
+    }
+
+     
  </script>
 
 <script>

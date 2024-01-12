@@ -110,6 +110,9 @@
             <div></div>
         </div>
     </div>
+    <div class="btn-container" style=" margin-top:20px;">
+        <button onclick="home()" class="btn" style="display:flex; justify-content: center; width: 100%;"> Arrêt et retour au chargeur</button>
+    </div> 
     <div class="btn-container" style="margin-top:30px;">
         <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
             <i class="fa-solid fa-triangle-exclamation"></i>
@@ -128,10 +131,6 @@
 
     });
 
-    document.addEventListener("click", function () {
-        
-
-    });
 
 
     function Etatfonctionnement(){
@@ -140,17 +139,31 @@
 
         } 
         var slider = document.getElementById("switchState");
+
         slider.addEventListener('click', function() {
         // Attente de 0.3 seconde avant d'afficher la boîte de confirmation
         setTimeout(function() {
             if(document.getElementById("switchState").checked){
-             var userConfirmation = alert('mode MANUEL');
+             var userConfirmation = alert('Mode manuelL');
              }
             else{
-                var userConfirmation = alert('mode AUTOMATIQUE ');}
+                var userConfirmation = alert('Mode automatique ');}
 
             }, 300); // 300 millisecondes = 0.3 seconde
         });
+
+         // ---- BOUTTON POUR RETOURNER À LA BASE ----
+        function home() { // envoye a la maison 
+        var userConfirmation = confirm('Voulez-vous arrêter le déserbage et retourner le robot à sa base');
+        if (userConfirmation) {
+            //À FAIRE
+            localStorage.setItem("envoyer", false);
+            localStorage.setItem("modeManuel", false);
+            document.getElementById("switchState").checked =JSON.parse(localStorage.getItem('modeManuel'));
+
+        } else {}
+        }
+    
         
     
 </script>
