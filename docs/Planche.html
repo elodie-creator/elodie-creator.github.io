@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        /* Styles pour la liste de cases à cocher */
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: aliceblue; 
+            font-size: 20px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            margin-top: 10px;
+            margin-left:auto;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 30px;
+        }
+
+        /* Styles pour personnaliser l'apparence des cases à cocher */
+        .styled-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fcfdfc; /* Couleur de la bordure */
+            border-radius: 6px;
+            display: inline-block;
+            position:relative;
+        }
+
+        .styled-checkbox:checked {
+            background-color: #087406; /* Couleur de fond lorsque cochée */
+            border-color: #fdfeff; /* Couleur de la bordure lorsque cochée */
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1px;
+            height: 1px;
+            border-radius: 6px;
+            background-color: #fff; /* Couleur de la coche */
+            display: none;
+        }
+
+        .styled-checkbox:checked .checkmark {
+            display: block;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <div class="menu">
+            <button class="backbtn" onclick="changerPage('Jardin.html')" style="cursor: pointer;">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <h2 class="title">Sélection des planches</h2>
+        </div>
+
+        <!-- Afficher le jardin sélectionné de la page précédente -->
+        <div style="justify-content: center; margin-left: 40%;">
+            <h2 style="margin: auto; justify-content: center; color: aliceblue;"> <span id="infoJardin"></span></h3>
+        </div>
+        <ul class="checkbox-list">
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche1">
+                    Planche 1
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche2">
+                    Planche 2
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche3">
+                    Planche 3
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche4">
+                    Planche 4
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche5">
+                    Planche 5
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche6">
+                    Planche 6
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche7">
+                    Planche 7
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche8">
+                    Planche 8
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche9">
+                    Planche 9
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche10">
+                    Planche 10
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche11">
+                    Planche 11
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche12">
+                    Planche 12
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche13">
+                    Planche 13
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche14">
+                    Planche 14
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche15">
+                    Planche 15
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li class="checkbox-item">
+                <label>
+                    <input type="checkbox" class="styled-checkbox" id="planche16">
+                    Planche 16
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            
+        </ul>
+
+        <div class="btn-container" style="margin-top:30px;">
+            <button id="BtnOK" class="btn" onclick="changerPage('Jardin.html')">OK</button> 
+            <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>ARRÊT D'URGENCE</span>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </button>
+        </div>
+        
+
+        
+        <script>
+            // changer de page
+            function changerPage(page) {
+                
+                // Récupérer le choix du jardin depuis le localStorage
+                var selectedJardin = localStorage.getItem("jardinSelectionne");
+                // Enregistrer le tableau d'états des planches associé au choix du jardin
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_1`, document.getElementById("planche1").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_2`, document.getElementById("planche2").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_3`, document.getElementById("planche3").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_4`, document.getElementById("planche4").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_5`, document.getElementById("planche5").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_6`, document.getElementById("planche6").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_7`, document.getElementById("planche7").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_8`, document.getElementById("planche8").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_9`, document.getElementById("planche9").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_10`, document.getElementById("planche10").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_11`, document.getElementById("planche11").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_12`, document.getElementById("planche12").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_13`, document.getElementById("planche13").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_14`, document.getElementById("planche14").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_15`, document.getElementById("planche15").checked);
+                localStorage.setItem(`selectedPlanches_${selectedJardin}_16`, document.getElementById("planche16").checked);
+                // changer de page
+                window.location.href = page;
+            }
+
+            
+        
+    
+            // Récupérer le jardin sélectionné 
+            var selectedJardin = localStorage.getItem("jardinSelectionne");
+            document.getElementById("infoJardin").textContent = selectedJardin;
+
+            //document.getElementById("planche1").checked =localStorage.getItem(`selectedPlanches_${selectedJardin}_1`)
+            // Fonction appelée au chargement de la page
+            document.addEventListener('DOMContentLoaded', recuperation) ;
+            
+            function recuperation () {
+                var selectedJardin = localStorage.getItem("jardinSelectionne");
+                document.getElementById("planche1").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_1`));
+                document.getElementById("planche2").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_2`));
+                document.getElementById("planche3").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_3`));
+                document.getElementById("planche4").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_4`));
+                document.getElementById("planche5").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_5`));
+                document.getElementById("planche6").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_6`));
+                document.getElementById("planche7").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_7`));
+                document.getElementById("planche8").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_8`));
+                document.getElementById("planche9").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_9`));
+                document.getElementById("planche10").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_10`));
+                document.getElementById("planche11").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_11`));
+                document.getElementById("planche12").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_12`));
+                document.getElementById("planche13").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_13`));
+                document.getElementById("planche14").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_14`));
+                document.getElementById("planche15").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_15`));
+                document.getElementById("planche16").checked =JSON.parse(localStorage.getItem(`selectedPlanches_${selectedJardin}_16`));
+
+            };
+
+
+
+    
+        </script>
+
+    </div>
+</body>
+
+</html>
+

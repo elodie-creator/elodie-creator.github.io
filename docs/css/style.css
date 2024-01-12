@@ -1,0 +1,307 @@
+:root{
+    --outerGradient:#614385;
+    --interGradient:#516395;
+
+    
+    --btnOuterGradient:#2E3192;
+    --btnInnerGradient:#1BFFFF;
+}
+
+
+html,body{
+    min-height: 100vh;
+    background: linear-gradient(45deg, var(--interGradient), var(--outerGradient));
+    background: linear-gradient(109.6deg, rgb(16, 37, 60) 51.2%, rgb(31, 49, 82) 98.6%);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    max-width: 1200px;
+}
+
+h1{
+    font-size: 38px;
+}
+
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 20px;
+    color: #fff;
+}
+
+.title{
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+}
+
+.menu{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    margin-top:20px;
+    /*text-align: center;*/
+}
+
+
+/* Button style */
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn{
+    font-family: 'Roboto', sans-serif;
+    padding:20px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 18px;
+    color:#fff;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(45deg, var(--btnOuterGradient), var(--btnInnerGradient));
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn:hover{
+    background: #18487a;
+}
+
+
+.btnJardin{
+    font-family: 'Roboto', sans-serif;
+    padding:10px 10px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 15px;
+    color:#fff;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(45deg, var(--btnOuterGradient), var(--btnInnerGradient));
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 90px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btnJardin:hover{
+    background: #18487a;
+}
+
+.btn-danger{
+    border-image-source: linear-gradient(45deg, #ff0000, #ff0000);
+    background-color: #FF6060;
+    color:#000;
+}
+
+.btn-danger:hover{
+    color:#fff;
+    background: #ff0000;
+}
+
+.informations-table{
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-collapse: collapse;
+    border: 3px solid #fff;
+    color:#fff;
+}
+
+.informations-table th, .informations-table td{
+    background-color: rgba(255, 255, 255, 0.10);
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.informations-table th{
+    font-weight: 600;
+    border-bottom:3px solid #fff;
+}
+
+.informations-table tr>td:nth-child(2), .informations-table tr>td:nth-child(3){
+    text-align: center;
+}
+
+.ok-status{
+    color: #00A300;
+}
+
+.danger-status{
+    color: #FF0000;
+}
+
+.warning-status{
+    color: #FFA500;
+}
+
+.backbtn{
+    padding: 10px;
+    background-color: transparent;
+    box-shadow: none;
+    border:none;
+    font-size: 26px;
+    color:#fff;
+    cursor: pointer;
+    text-shadow: none;
+    transition: text-shadow 0.3s ease;
+}   
+
+.backbtn:hover{
+    text-shadow: #fff 2px 1px 10px;
+}
+
+/* disposition des bouton de jardin*/
+.jardin-table{
+    border-collapse: separate;
+    border-spacing: 100px;
+    border: 3px solid #fff;
+    color:#f5f5f5;
+    text-align: center;
+}
+
+.jardin-table td{
+    background-color: rgba(255, 255, 255, 0.10);
+    padding: 100px;
+    border: 1px solid rgba(116, 52, 52, 0.15);
+    text-align: center;
+}
+
+
+.jardin-table tr{
+    background-color: rgba(186, 4, 4, 0.1);
+    padding: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+/* fin disposition des jardin*/
+
+.control-pad{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.control-pad > div{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-pad > div > div{
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+
+.control-pad .controls{
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.control-pad .controls:hover{
+    color:rgb(42, 134, 255);
+}
+.control-pad .controls:active{
+    color:rgb(42, 255, 124);
+}
+
+/*
+    START OF THE SWITCH BUTTON
+    Sources: https://uiverse.io/namecho/quiet-panther-93
+*/
+.switch {
+    --button-width: 3.5em;
+    --button-height: 2em;
+    --toggle-diameter: 1.5em;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 10px;
+    --toggle-wider: 3em;
+    --color-grey: #cccccc;
+    --color-green: #24d63c;
+   }
+   
+   .slider {
+    display: inline-block;
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: var(--color-grey);
+    border-radius: calc(var(--button-height) / 2);
+    position: relative;
+    transition: 0.3s all ease-in-out;
+    
+   }
+   
+   .slider::after {
+    content: "";
+    display: inline-block;
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    background-color: #fff;
+    border-radius: calc(var(--toggle-diameter) / 2);
+    position: absolute;
+    top: var(--button-toggle-offset);
+    transform: translateX(var(--button-toggle-offset));
+    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    transition: 0.3s all ease-in-out;
+   }
+   
+   .switch input[type="checkbox"]:checked + .slider {
+    background-color: var(--color-green);
+   }
+   
+   .switch input[type="checkbox"]:checked + .slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+   }
+   
+   .switch input[type="checkbox"] {
+    display: none;
+   }
+   
+   .switch input[type="checkbox"]:active + .slider::after {
+    width: var(--toggle-wider);
+   }
+   
+   .switch input[type="checkbox"]:checked:active + .slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+   }
+/*
+    END OF THE SWITCH BUTTON
+*/
+
+/* Styles pour rendre la case à cocher plus grande */
+input[type="checkbox"] {
+    transform: scale(1.5); /* Ajustez la valeur selon vos préférences */
+    justify-content: center;
+    align-items: center;
+}

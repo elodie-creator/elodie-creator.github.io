@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- Page containing the settings of the robot -->
+<div id="settings">
+    <div class="menu">
+        <button class="backbtn" onclick="changerPage('Accueil.html')" style="cursor: pointer;">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h2 class="title">Sélection des planches</h2>
+    </div>
+    <div class="content">
+        
+        <table class="Jardin-table" style="margin-bottom: 20px;">
+            <tbody>
+                <tr>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button> </td>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                    <td><button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button> </td>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                    <td><button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button> </td>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                    <td><button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button> </td>
+                    <td> <button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                    <td><button x-on:click="page = 'planche'" class="btn"> Jardin 1</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn-container" style="margin-top:30px;">
+        <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>ARRÊT D'URGENCE</span>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </button>
+    </div>
+</div>
+<script>
+    function changerPage(page) {
+        window.location.href = page;
+    }
+</script>
+</body>

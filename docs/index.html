@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, World!</title>
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    #passwordInput {
+      padding: 10px;
+      margin: 10px;
+    }
+
+    #loginButton {
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <div> 
+        <div style="display:flex; padding:20px 0; align-items: center;">
+            <img src="img/robot.png" style="width: 75px;" alt="">
+            <h1 class="title"> Mr. Désherbeur</h1>   
+        </div>
+        <div>
+
+        <h2 class="title">Mot de passe</h2>
+        </div>
+        <div>
+            <input type="password" id="passwordInput" placeholder="Mot de passe">
+            <button onclick="checkPassword()" id="loginButton">Se connecter</button>    
+        </div>
+
+  <script>
+    function checkPassword() {
+      var password = document.getElementById("passwordInput").value;
+
+      // Remplacez "votre_mot_de_passe" par le mot de passe que vous souhaitez utiliser
+      if (password === "1234") {
+        window.location.href = "Accueil.html";
+      } else {
+        alert("Mot de passe incorrect. Veuillez réessayer.");
+      }
+    }
+  </script>
+
 </body>
 </html>

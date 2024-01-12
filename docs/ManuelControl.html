@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        /* Styles pour la liste de cases à cocher */
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: aliceblue; 
+            font-size: 20px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            margin-top: 10px;
+            margin-left:auto;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 30px;
+        }
+
+        /* Styles pour personnaliser l'apparence des cases à cocher */
+        .styled-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fcfdfc; /* Couleur de la bordure */
+            border-radius: 6px;
+            display: inline-block;
+            position:relative;
+        }
+
+        .styled-checkbox:checked {
+            background-color: #087406; /* Couleur de fond lorsque cochée */
+            border-color: #fdfeff; /* Couleur de la bordure lorsque cochée */
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1px;
+            height: 1px;
+            border-radius: 6px;
+            background-color: #fff; /* Couleur de la coche */
+            display: none;
+        }
+
+        .styled-checkbox:checked .checkmark {
+            display: block;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- Page containing the manual control of the robot -->
+<div>
+    <div class="menu">
+        <button class="backbtn" onclick="changerPage('Accueil.html')" style="cursor: pointer;">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h2 class="title">Contrôle Manuel</h2>
+    </div>
+
+    <div style="display: flex; justify-content: center;" >
+        <label class="switch" >
+            <input type="checkbox" id="switchState" onclick="Etatfonctionnement()">
+            <span class="slider" ></span>
+        </label>
+    </div>
+
+
+    <!--Square of controls-->
+    <div class="control-pad">
+        <div>
+            <div></div>
+            <div class="controls"><i class="fa-solid fa-caret-up"></i></div>
+            <div></div>
+        </div>
+
+        <div>
+            <div class="controls"><i class="fa-solid fa-caret-left"></i></div>
+            <div></div>
+            <div class="controls"><i class="fa-solid fa-caret-right"></i></div>
+        </div>
+
+        <div>
+            <div></div>
+            <div class="controls"><i class="fa-solid fa-caret-down"></i></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="btn-container" style="margin-top:30px;">
+        <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>ARRÊT D'URGENCE</span>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </button>
+    </div>
+</div>
+<script>
+    function changerPage(page) {
+        window.location.href = page;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("switchState").checked =JSON.parse(localStorage.getItem('modeManuel'));
+
+    });
+
+    document.addEventListener("click", function () {
+        
+
+    });
+
+
+    function Etatfonctionnement(){
+        localStorage.setItem("modeManuel", document.getElementById("switchState").checked);
+
+
+        } 
+        var slider = document.getElementById("switchState");
+        slider.addEventListener('click', function() {
+        // Attente de 0.3 seconde avant d'afficher la boîte de confirmation
+        setTimeout(function() {
+            if(document.getElementById("switchState").checked){
+             var userConfirmation = alert('mode MANUEL');
+             }
+            else{
+                var userConfirmation = alert('mode AUTOMATIQUE ');}
+
+            }, 300); // 300 millisecondes = 0.3 seconde
+        });
+        
+    
+</script>
+
+</body>

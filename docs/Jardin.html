@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+</head>
+<body>
+        <div>
+            <div class="menu">
+                <button class="backbtn" onclick="changerPage('ParametreDesherb.html') " style="cursor: pointer;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h2 class="title">Choisir un jardin</h2>
+            </div>
+
+            <div class="content">
+            
+                <table class="Jardin-table" style="margin-bottom: 20px;">
+                    <tbody>
+                        <tr>
+                            <td>  </td>
+                            <td> <button onclick="choisirJardin(' Jardin 1')" id=' Jardin 1' class="btnJardin"> 1</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 2')" id=' Jardin 2' class="btnJardin">2</button> </td>
+                        </tr>
+                        <tr>
+                            <td> <button onclick="choisirJardin(' Jardin 5')" id=' Jardin 5' class="btnJardin"> 5</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 4')" id=' Jardin 4' class="btnJardin"> 4</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 3')" id=' Jardin 3' class="btnJardin"> 3</button> </td>
+                        </tr>
+                        <tr>
+                            <td> <button onclick="choisirJardin(' Jardin 6')" id=' Jardin 6' class="btnJardin"> 6</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 7')" id=' Jardin 7' class="btnJardin"> 7</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 8')" id=' Jardin 8' class="btnJardin"> 8</button> </td>
+                        </tr>
+                        <tr>
+                            <td> <button onclick="choisirJardin(' Jardin 11')" id=' Jardin 11' class="btnJardin"> 11</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 10')" id=' Jardin 10' class="btnJardin"> 10</button> </td>
+                            <td> <button onclick="choisirJardin(' Jardin 9')" id=' Jardin 9' class="btnJardin">9</button> </td>
+                        </tr>
+                    </tbody>
+                    
+                    
+                
+                </table>
+                
+            </div>
+            <div class="btn-container" style="margin-top:30px;">
+                <button id="BtnOK" class="btn" onclick="changerPage('ParametreDesherb.html')" >OK</button> 
+                <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>ARRÊT D'URGENCE</span>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </button>
+            </div>
+        
+        </div>
+
+        <script>
+            // Fonction appelée lors du clic sur un bouton de jardin
+            function choisirJardin(jardin) {
+                // Stocker le jardin sélectionné dans le localStorage
+                localStorage.setItem("jardinSelectionne", jardin);
+                // Rediriger vers la page 2
+                window.location.href = "Planche.html";
+            }
+            function changerPage(page) {
+                window.location.href = page;
+            }
+        </script>
+    </body>
+
+</html>
+
+
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+</head>
+<body>
+    <div>
+        <div class="menu">
+            <button class="backbtn" onclick="changerPage('Accueil.html')" style="cursor: pointer;">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <h2 class="title">Informations</h2>
+        </div>
+        <!-- Table containing the basic informations about the robot -->
+        <div class="content">
+            <table id="listeStatus" class="informations-table" style="margin-bottom: 20px;">
+
+                <tr>
+                    <td>Mode de fonctionnement</td>
+                    <td id="modeDeFonctionnement"></td>
+                </tr>
+                <tr>
+                    <td>Statut Robot</td>
+                    <td id="statut2Content"></td>
+                </tr>
+                <tr>
+                    <td>Statut Caméra</td>
+                    <td id="statut3Content"></td>
+                </tr>
+                <tr>
+                    <td>Statut Batterie</td>
+                    <td id="statut4Content"></td>
+                </tr>
+            </table>
+            
+        </div>
+        <!-- BOUTON TEMPORAIRE POUR MANIPULATION DES ÉTATS-->
+        <div>
+        <table class="Jardin-table" style="margin-bottom: 20px; ">
+            <tbody>
+                <tr>
+                    <button id="B1" class="btn"  onclick="ChangeValue('B1')">0</button> 
+                    <button id="B2" class="btn" onclick="ChangeValue('B2')">0</button> 
+                    <button id="B3" class="btn" onclick="ChangeValue('B3')">0</button> 
+                    <button id="B4" class="btn" onclick="ChangeValue('B4')">0</button> 
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="btn-container" style="margin-top:30px;">
+            <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>ARRÊT D'URGENCE</span>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </button>
+        </div>
+
+
+    </div>
+
+
+     <script>
+        function changerPage(page) {
+            window.location.href = page;
+        }
+
+        document.addEventListener("click", functionStatut);
+
+        function functionStatut(){
+            // Variable statut
+            const StatutBouton1 = localStorage.getItem("B1");
+            var statut1 = parseInt(StatutBouton1, 10);
+            const StatutBouton2 = localStorage.getItem("B2");
+            var statut2 = parseInt(StatutBouton2, 10);
+            const StatutBouton3 = localStorage.getItem("B3");
+            var statut3 = parseInt(StatutBouton3, 10);
+            const StatutBouton4 = localStorage.getItem("B4");
+            var statut4 = parseInt(StatutBouton4, 10);
+
+            // Sélectionnez les cellules de contenu par leur ID
+            var statut1Content = document.getElementById("statut1Content");
+            var statut2Content = document.getElementById("statut2Content");
+            var statut3Content = document.getElementById("statut3Content");
+            var statut4Content = document.getElementById("statut4Content");
+
+
+            // Ajoutez le contenu HTML à l'élément li en fonction de la valeur de statut<
+            if(statut1===1){
+                modeDeFonctionnement.innerHTML = '<i class="fa-solid fa-power-off"></i> OFF'; 
+            }else if (statut1 === 0 || statut1 === 2){
+                if (JSON.parse(localStorage.getItem('modeManuel'))) {
+                    modeDeFonctionnement.innerHTML = 'Manuel';
+                } else {
+                    modeDeFonctionnement.innerHTML = 'Automatique';
+                }
+            } else {};
+
+
+            // Ajoutez le contenu HTML à l'élément li en fonction de la valeur de statut
+            if (statut2 === 1) {
+                statut2Content.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERROR </i>';
+            } else if (statut2 === 2) {
+                statut2Content.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
+            } else if (statut2 === 0){
+                statut2Content.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> WARNING</i>';  
+            } else{};
+            // Ajoutez le contenu HTML à l'élément li en fonction de la valeur de statut
+            if (statut3 === 1) {
+                statut3Content.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERROR </i>';
+            } else if (statut3 === 2) {
+                statut3Content.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
+            } else if (statut3 === 0){
+                statut3Content.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> WARNING</i>';  
+            } else{};
+            // Ajoutez le contenu HTML à l'élément li en fonction de la valeur de statut
+            if (statut4 === 1) {
+                statut4Content.innerHTML = '<i class="fa-solid fa-battery-full" style = "color: #00A300;"></i> <i class="ok-status">100%</i>';
+            } else if (statut4 === 2) {
+                statut4Content.innerHTML = '<i class="fa-solid fa-battery-half" style="color: #FFA500;"></i> </i> <i style="color: #FFA500;"> 50%</i>';
+            } else if (statut4 === 0){
+                statut4Content.innerHTML = '<i class="fa-solid fa-battery-empty" style="color: #FF0000;"></i> <i style="color: #FF0000;"> 0% </i>';  
+            }else{};
+        }
+        // SCRIPT TEMPORAIRE POUR L'ÉTAT DES BOUTON TEMPORAIRE
+    
+        var buttonValue1 = 0;
+        var buttonValue2 = 0;
+        var buttonValue3 = 0;
+        var buttonValue4 = 0;
+
+        function ChangeValue(nomBouton) {
+            var buttonValueI = localStorage.getItem(nomBouton);
+            var buttonValue = (buttonValueI + 1) % 3;
+            document.getElementById(nomBouton).innerText = buttonValue;
+            localStorage.setItem(nomBouton, buttonValue);
+        }
+
+        document.addEventListener('DOMContentLoaded', recupBouton); 
+        function recupBouton () {
+            document.getElementById("B1").innerText=localStorage.getItem("B1");
+            document.getElementById("B2").innerText=localStorage.getItem("B2");
+            document.getElementById("B3").innerText=localStorage.getItem("B3");
+            document.getElementById("B4").innerText=localStorage.getItem("B4");
+            functionStatut();
+
+        }
+
+    </script>
+</body>
+
+
+

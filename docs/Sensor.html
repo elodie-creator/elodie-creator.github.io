@@ -1,0 +1,130 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Désherbeur </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- Page containing the sensors status of the robot -->
+<div  id="sensors">
+    <div class="menu">
+        <button class="backbtn" onclick="changerPage('Accueil.html')" style="cursor: pointer;">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h2 class="title">Statut des capteurs</h2>
+    </div>
+
+    <div class="content">
+        <table class="informations-table" style="margin-bottom: 20px;">
+            <thead>
+                <tr>
+                    <th> Capteur</th>
+                    <th> Statut</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sensor 1</td>
+                    <td id="sen1"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Sensor 2</td>
+                    <td id="sen2"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Sensor 3</td>
+                    <td id="sen3"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Sensor 4</td>
+                    <td id="sen4"></td>
+                   
+                </tr>
+                <tr>
+                    <td>Sensor 5</td>
+                    <td id="sen5"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="btn-container" style="margin-top:30px;">
+            <button class="btn btn-danger" style="display:flex; justify-content: center; gap:15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>ARRÊT D'URGENCE</span>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </button>
+        </div>
+    
+        </div>
+            <!-- BOUTON TEMPORAIRE POUR MANIPULATION DES ÉTATS-->
+            <div>
+                <button id="SEN" class="btn" onclick="ChangeValue('SEN')">0</button> 
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+     <script>
+            function changerPage(page) {
+                window.location.href = page;
+            }
+
+            document.addEventListener('click', functionStatut );
+
+            function functionStatut(){
+                // Variable statut
+                const sensorStatus = localStorage.getItem("SEN");
+                var Sen = parseInt(sensorStatus, 10);
+
+                for(i=1; i<=5; i++){
+
+                    var S = document.getElementById(`sen${i}`);
+                    if (Sen === 1) {
+                        S.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERROR </i>';
+                    } else if (Sen === 2) {
+                        S.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
+                    } else if (Sen === 0){
+                        S.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> WARNING</i>';  
+                    } else{};
+                }
+               
+            }
+        // SCRIPT TEMPORAIRE POUR L'ÉTAT DES BOUTON TEMPORAIRE
+
+        function ChangeValue(nomBouton) {
+            var buttonValueI = localStorage.getItem(nomBouton); 
+            var buttonValue = (buttonValueI + 1) % 3;
+            document.getElementById(nomBouton).innerText = buttonValue;
+            localStorage.setItem(nomBouton, buttonValue);
+        }
+
+        document.addEventListener('DOMContentLoaded', recupBouton); 
+        function recupBouton () {
+            document.getElementById("SEN").innerText=localStorage.getItem("SEN");
+            functionStatut();
+        }
+
+        
+    </script>
+</body>
+
+<!--
+<td </td>
+<td class="danger-status"><i class="fa-regular fa-circle-xmark"></i> ERROR</td>
+<td class="ok-status"><i class="fa-solid fa-check"></i> OK</td>
+<td class="warning-status"><i class="fa-solid fa-triangle-exclamation"></i> WARNING</td>
+-->
+
