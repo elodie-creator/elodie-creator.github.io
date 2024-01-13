@@ -33,11 +33,11 @@
                     <td id="modeDeFonctionnement"></td>
                 </tr>
                 <tr>
-                    <td>Statut du Robot</td>
+                    <td>Statut du robot</td>
                     <td id="statutRobot"></td>
                 </tr>
                 <tr>
-                    <td>Statut de la Batterie</td>
+                    <td>Statut de la batterie</td>
                     <td id="statutBatterie"></td>
                 </tr>
             </table>
@@ -71,12 +71,12 @@
         }
 
         document.addEventListener("click", functionStatut);
-
+        var statut1 = 1;
         function functionStatut(){
             // Variable statut
             //const StatutBouton1 = localStorage.getItem("B1");
-            const StatutBouton1 = 1;
-            var statut1 = parseInt(StatutBouton1, 10);
+            //const StatutBouton1 = 1;
+           // var statut1 = parseInt(StatutBouton1, 10);
 
 
             // Sélectionnez les cellules de contenu par leur ID
@@ -85,7 +85,7 @@
             var statutRobots = document.getElementById("statutRobot");
             var statutBatteries = document.getElementById("statutBatterie");
 
-
+            statut1=1;
             // statut de l'alimentation
             if(statut1===1){
                 statutalimentation.innerHTML = '<i class="fa-solid fa-power-off"></i> OFF';
@@ -100,9 +100,9 @@
             }
    
             // Ajoutez le contenu HTML à l'élément li en fonction de la valeur de statut
-            if (statut1 === 1) {
+            if (statut1 === 2) {
                 statutRobots.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #FF0000;"></i><i style="color: #FF0000;"> ERREUR </i>';
-            } else if (statut1 === 2) {
+            } else if (statut1 === 1) {
                 statutRobots.innerHTML = '<i class="fa-solid fa-check" style = "color: #00A300;"></i> <i class="ok-status">OK</i>';
             } else if (statut1 === 0){
                 statutRobots.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #FFA500;"></i> <i style="color: #FFA500;"> AVERTISSEMENT</i>';  
@@ -129,8 +129,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', recupBouton); 
+
         function recupBouton () {
-            document.getElementById("B1").innerText=localStorage.getItem("B1");
+            //document.getElementById("B1").innerText=localStorage.getItem("B1");
             functionStatut();
         }
 
