@@ -125,6 +125,10 @@ h3{
     color:#fff;
     background: #ff0000;
 }
+.emergencyMode {
+    background-color: #ff0000; /* Rouge foncé */
+}
+  
 
 .informations-table{
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
